@@ -1,0 +1,10 @@
+    1  python test.py 
+    2  pip install Flask
+    3  ls
+    4  ls -alh
+    5  python app.py 
+    6  git add .
+    7  git commit -m "my first commit"
+    8  git push
+    9  history
+   10  history > commands.txt
