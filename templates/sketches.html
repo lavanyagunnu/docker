@@ -1,0 +1,39 @@
+<!-- sketches.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Include the header -->
+    {% include 'header.html' %}
+<body>
+    <h1>&nbsp</h1>
+
+    <h1>Sketches Carousel</h1>
+<div class="container mt-4">
+
+
+    <div id="sketchesCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            {% set image_path = 'sketches/' %}
+            {% for image in sketches_images %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <img src="{{ url_for('static', filename=image_path + image) }}" class="d-block " alt="{{ image }}" width="50%" >
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#sketchesCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#sketchesCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

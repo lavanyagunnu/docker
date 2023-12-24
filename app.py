@@ -1,6 +1,8 @@
 from flask import Flask, render_template
+import os
 
 app = Flask(__name__)
+app.config['STATIC_FOLDER'] = 'static'
 
 @app.route('/')
 def home():
@@ -8,7 +10,15 @@ def home():
 
 @app.route('/sketches')
 def sketches():
-    return render_template('sketches.html')
+    # Path to the sketches folder
+    sketches_folder = os.path.join(app.static_folder, 'sketches')
+
+    # Get a list of all files in the sketches folder
+    sketches_images = [f for f in os.listdir(sketches_folder)  if os.path.isfile(os.path.join(sketches_folder, f))]
+
+    return render_template('sketches.html', sketches_images=sketches_images)
+
+
 
 @app.route('/about')
 def about():
@@ -27,4 +37,4 @@ def contact():
     return render_template('contact.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0",port=5000)

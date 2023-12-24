@@ -1,0 +1,57 @@
+<!-- home.html (and similarly for other pages) -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Include the header -->
+    {% include 'header.html' %}
+
+
+<body>
+    <!-- Page content -->
+    <div class="container mt-4 d-flex justify-content-center">
+        <h1>About Me</h1>
+        <!-- Add your home page content here -->
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-2" >
+                <!-- 20% width -->
+                <p></p>
+            </div>
+            <div class="col-md-6" >
+                <!-- 60% width -->
+                <img src="{{ url_for('static', filename='profile.jpg') }}"  class="d-inline-block align-top" alt="">
+            </div>
+            <div class="col-md-2" >
+                <!-- 20% width -->
+                <p></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2" >
+                <!-- 20% width -->
+                <p></p>
+            </div>
+            <div class="col-md-8" >
+                <!-- 60% width -->
+                <p>I am a dedicated tech enthusiast fueled by a passion for coding and
+                     a relentless drive to acquire new skills. In the dynamic landscape of 
+                     technology, I find joy in perpetual learning and growth. My 
+                     curiosity is the driving force behind my commitment to staying 
+                     up-to-date with the latest advancements in the field. Embracing 
+                     challenges as opportunities, I derive immense satisfaction from 
+                     problem-solving, reflecting my unwavering dedication to both personal 
+                     and professional development in the ever-evolving realm of technology.</p>
+            </div>
+            <div class="col-md-2" >
+                <!-- 20% width -->
+                <p></p>
+            </div>
+        </div>    
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
