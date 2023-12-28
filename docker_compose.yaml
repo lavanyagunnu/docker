@@ -1,0 +1,33 @@
+
+services:
+ postgres:
+   image: postgres
+   container_name: postgres
+   ports:
+     - '5432:5432'
+   restart: always
+   env_file:
+     - ./.env
+   volumes:
+     - postgres-db:/var/lib/postgresql/data
+
+ pgadmin:
+   container_name: pgadmin4
+   image: dpage/pgadmin4
+   restart: always
+   environment:
+     PGADMIN_DEFAULT_EMAIL: admin@admin.com
+     PGADMIN_DEFAULT_PASSWORD: root
+   ports:
+     - "5050:80"
+
+ lava_world:
+   container_name: lava_world
+   build:
+    context: .
+   restart: always
+   ports:
+     - "5000:5000"
+volumes:
+ postgres-db:
+ 

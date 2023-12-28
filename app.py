@@ -1,8 +1,41 @@
 from flask import Flask, render_template
 import os
+import psycopg2
+from psycopg2 import sql
 
 app = Flask(__name__)
 app.config['STATIC_FOLDER'] = 'static'
+def fetch_sketches_data():
+    # Replace these with your actual database connection details
+    db_params = {
+        'dbname': 'lava_world',
+        'user': 'postgres',
+        'password': 'password123',
+        'host': 'postgres',
+        'port': '5432'
+    }
+
+    connection = psycopg2.connect(**db_params)
+    cursor = connection.cursor()
+
+    # Fetch data from the database
+    query = sql.SQL("SELECT Date_created, Artist_name, Title, File_name FROM sketches_data;")
+    cursor.execute(query)
+    result = cursor.fetchall()
+
+    # Separate the fetched data into individual lists
+    date_created_list = [row[0] for row in result]
+    artist_name_list = [row[1] for row in result]
+    title_list = [row[2] for row in result]
+    images_list = [row[3] for row in result]
+
+
+    # Close the database connection
+    cursor.close()
+    connection.close()
+
+    return date_created_list, artist_name_list, title_list, images_list
+
 
 @app.route('/')
 def home():
@@ -10,13 +43,16 @@ def home():
 
 @app.route('/sketches')
 def sketches():
-    # Path to the sketches folder
-    sketches_folder = os.path.join(app.static_folder, 'sketches')
 
-    # Get a list of all files in the sketches folder
-    sketches_images = [f for f in os.listdir(sketches_folder)  if os.path.isfile(os.path.join(sketches_folder, f))]
 
-    return render_template('sketches.html', sketches_images=sketches_images)
+    # Fetch the three lists from the database
+    date_created_list, artist_name_list, title_list, images_list= fetch_sketches_data()
+
+    # You should also pass these lists to the template
+    return render_template('sketches.html', sketches_images=images_list,
+                            date_created_list=date_created_list,
+                            artist_name_list=artist_name_list,
+                            title_list=title_list)
 
 
 
