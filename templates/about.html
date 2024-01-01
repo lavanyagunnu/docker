@@ -4,51 +4,90 @@
 <html lang="en">
     <!-- Include the header -->
     {% include 'header.html' %}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .custom-border {
+            box-sizing: border-box;
+            border: 1px solid #000; /* Adjust the color and width as needed */
+            padding: 10px; /* Optional: Add padding for better visual appearance */
+            border-radius: 1.5rem;
+            height: 20vb;
+           
+        }
+    </style>
+
 
 
 <body>
     <!-- Page content -->
+
+    </style>
     <div class="container mt-4 d-flex justify-content-center">
+        <h1>&nbsp;</h1>
         <h1>About Me</h1>
         <!-- Add your home page content here -->
     </div>
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-2" >
-                <!-- 20% width -->
-                <p></p>
-            </div>
-            <div class="col-md-6" >
-                <!-- 60% width -->
-                <img src="{{ url_for('static', filename='profile.jpg') }}"  class="d-inline-block align-top" alt="">
-            </div>
-            <div class="col-md-2" >
-                <!-- 20% width -->
-                <p></p>
-            </div>
+
+        <div class="container mt-4 d-flex justify-content-center">
+            <h1>&nbsp;</h1>
+            <h1>About Me</h1>
+            <!-- Add your home page content here -->
         </div>
 
         <div class="row">
-            <div class="col-md-2" >
+            <div class="col-md-1" >
                 <!-- 20% width -->
                 <p></p>
             </div>
-            <div class="col-md-8" >
+            <div class="col-md-5" >
                 <!-- 60% width -->
-                <p>I am a dedicated tech enthusiast fueled by a passion for coding and
-                     a relentless drive to acquire new skills. In the dynamic landscape of 
-                     technology, I find joy in perpetual learning and growth. My 
-                     curiosity is the driving force behind my commitment to staying 
-                     up-to-date with the latest advancements in the field. Embracing 
-                     challenges as opportunities, I derive immense satisfaction from 
-                     problem-solving, reflecting my unwavering dedication to both personal 
-                     and professional development in the ever-evolving realm of technology.</p>
+                <img src="{{ url_for('static', filename='profile.jpg') }}" class="img-fluid rounded-pill" alt="Responsive image">
             </div>
-            <div class="col-md-2" >
+            <div class="col-md-5 ml-5 " >
+                <!-- 60% width -->
+                <div class="row card-body ">
+                        <div class="col-md-5 custom-border text-center p-4" >
+                            <!-- 20% width -->
+                            <i class="bi-book-fill bi-3x"></i>
+
+                            <p class="font-weight-bold">Education</p>
+                            <ul>
+                                <li>Intermediate</li>
+                                <li>Bachelor of Technology</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2"></div>
+                
+                        <div class="col-md-5 custom-border text-center p-4" >
+                            <!-- 60% width -->
+                            <i class="bi-briefcase-fill bi-3x"></i>
+                          
+                            <p class="font-weight-bold">Experience</p>
+                        </div>
+                    
+
+                </div>
+                <div class="row mt-4">
+                        <p>I am a dedicated tech enthusiast fueled by a passion for coding and
+                        a relentless drive to acquire new skills. In the dynamic landscape of 
+                        technology, I find joy in perpetual learning and growth. My 
+                        curiosity is the driving force behind my commitment to staying 
+                        up-to-date with the latest advancements in the field. Embracing 
+                        challenges as opportunities, I derive immense satisfaction from 
+                        problem-solving, reflecting my unwavering dedication to both personal 
+                        and professional development in the ever-evolving realm of technology.</p>
+                </div>
+            </div>
+            <div class="col-md-1" >
                 <!-- 20% width -->
                 <p></p>
             </div>
-        </div>    
+
+        </div>
+    
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
