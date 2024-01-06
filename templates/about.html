@@ -13,8 +13,36 @@
             border: 1px solid #000; /* Adjust the color and width as needed */
             padding: 10px; /* Optional: Add padding for better visual appearance */
             border-radius: 1.5rem;
-            height: 20vb;
+            height: 20vh;
+            overflow-y: auto; /* Add vertical scrollbar if necessary */
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: #000 #f0f0f0; /* Firefox */
+
+
            
+        }
+        .custom-border::-webkit-scrollbar {
+            width: 10px; /* Width of the entire scrollbar */
+        }
+
+        .custom-border::-webkit-scrollbar-track {
+            background-color: #f0f0f0; /* Color of the scrollbar track */
+            border-radius: 5px; /* Roundness of the scrollbar track */
+        }
+
+        .custom-border::-webkit-scrollbar-thumb {
+            background-color: #000; /* Color of the scrollbar handle */
+            border-radius: 5px; /* Roundness of the scrollbar handle */
+            border: 2px solid #f0f0f0; /* Border color between handle and track */
+        }
+        .custom-border ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .custom-border ul li {
+            margin-bottom: 5px;
         }
     </style>
 
@@ -66,6 +94,11 @@
                             <i class="bi-briefcase-fill bi-3x"></i>
                           
                             <p class="font-weight-bold">Experience</p>
+                            <ul>
+                                <li>Volunteer of Coding club at NITM</li>
+                                <li>Member of GDSC club at NITM</li>
+                                <li>School House Captain </li>
+                            </ul>
                         </div>
                     
 

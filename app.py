@@ -83,12 +83,14 @@ def edit_sketch(sketch_id):
     if request.method == 'POST':
         # Update the sketch with the new information
         new_title = request.form['title']
+        new_artist_name = request.form['artist_name']
+        new_date_created = request.form['date_created']
 
         connection = psycopg2.connect(**db_params)
         cursor = connection.cursor()
 
-        update_query = sql.SQL("UPDATE sketches_data SET Title = %s WHERE Id = %s;")
-        cursor.execute(update_query, (new_title, sketch_id))
+        update_query = sql.SQL("UPDATE sketches_data SET Title = %s, Artist_name = %s, Date_created = %s WHERE Id = %s;")
+        cursor.execute(update_query, (new_title, new_artist_name, new_date_created, sketch_id))
         connection.commit()
 
         # Close the database connection

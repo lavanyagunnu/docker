@@ -6,17 +6,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Sketch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set a light background color */
+        }
+
+        .edit-container {
+            max-width: 400px; /* Adjust the maximum width as needed */
+            margin: auto;
+            margin-top: 50px; /* Add top margin for centering on the page */
+            background-color: #fff; /* Set a white background color */
+            border-radius: 10px; /* Add rounded corners */
+            padding: 20px; /* Add padding for content */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da; /* Set a light border color */
+            border-radius: 5px; /* Add rounded corners to input fields */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff; /* Set a blue background color */
+            color: #fff; /* Set white text color */
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        </style>
 </head>
 <body>
 
-<h1>Edit Sketch</h1>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1>Edit Sketch</h1>
+    
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class="form-control" value="{{ sketch_data[3] }}" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="artist_name">Artist Name:</label>
+                        <input type="text" id="artist_name" name="artist_name" class="form-control" value="{{ sketch_data[2] }}" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="date_created">Date Created:</label>
+                        <input type="text" id="date_created" name="date_created" class="form-control" value="{{ sketch_data[1] }}" required>
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<form method="post" action="">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" value="{{ sketch_data[3] }}" required>
-    <br>
-    <input type="submit" value="Save Changes">
-</form>
+
 
 </body>
 </html>
